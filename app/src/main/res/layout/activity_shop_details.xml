@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Shop_details">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+    <TextView
+        android:id="@+id/ShowRegister"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fill your details"
+        android:textStyle="bold"
+        android:textSize="26dp"
+        android:textAlignment="center"
+        android:textColor="#f0764a"/>
+    <EditText
+        android:id="@+id/shopname"
+        android:layout_below="@id/ShowRegister"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:padding="10dp"
+        android:hint="Shop Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <TextView
+        android:id="@+id/openingtime"
+        android:layout_below="@id/shopname"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:padding="10dp"
+        android:hint="Shop Opening Time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <TextView
+        android:id="@+id/closingtime"
+        android:layout_below="@id/openingtime"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:padding="10dp"
+        android:hint="Shop Closing Time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <Button
+        android:id="@+id/Register"
+        android:layout_below="@id/closingtime"
+        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button"/>
+    <View
+        android:id="@+id/line"
+        android:layout_below="@id/Register"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="135dp"
+        android:background="#fc917e"/>
+
+    <TextView
+        android:id="@+id/bottom"
+        android:layout_below="@id/line"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_red_light"
+        android:textAlignment="center"
+        android:onClick="backToSignup"
+        android:hint="Already have an account? SIGN IN"/>
+</RelativeLayout>

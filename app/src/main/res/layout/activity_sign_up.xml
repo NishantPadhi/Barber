@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sign_up">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:id="@+id/TOPimage">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"/>
+    </LinearLayout>
+    <TextView
+        android:id="@id/text"
+        android:layout_below="@id/TOPimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="REGISTER AS"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"/>
+    <Button
+        android:id="@+id/btn1"
+        android:layout_below="@id/text"
+        android:layout_width="400dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:text="I want to book services"
+        android:textSize="18dp"
+        android:onClick="Customer"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button"/>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_below="@id/btn1"
+        android:layout_width="400dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:text="I want to offer servics"
+        android:textSize="18dp"
+        android:onClick="owner"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button"/>
+    <View
+        android:id="@+id/line"
+        android:layout_below="@id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="200dp"
+        android:background="#fc917e"/>
+    <TextView
+        android:id="@+id/bottom"
+        android:layout_below="@id/line"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:onClick="backToSignup"
+        android:textColor="@android:color/holo_red_light"
+        android:textAlignment="center"
+        android:hint="Already have an account? SIGN IN"/>
+</RelativeLayout>

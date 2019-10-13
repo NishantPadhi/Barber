@@ -100,6 +100,12 @@ public class UserHomePage extends AppCompatActivity implements
 //                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, NavigationDrawerConstants.SHARE_TITLE);
 //                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, NavigationDrawerConstants.SHARE_MESSAGE);
 //                startActivity(Intent.createChooser(sharingIntent, NavigationDrawerConstants.SHARE_VIA));
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String app_url ="https://github.com/NishantPadhi/Barber";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, app_url);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
                 break;
             case R.id.changePWD:
                 break;

@@ -34,7 +34,7 @@
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
         android:text="I want to book services"
-        android:textSize="18dp"
+        android:textSize="17dp"
         android:onClick="Customer"
         android:textAlignment="center"
         android:padding="5dp"
@@ -47,7 +47,7 @@
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
         android:text="I want to offer servics"
-        android:textSize="18dp"
+        android:textSize="17dp"
         android:onClick="owner"
         android:textAlignment="center"
         android:padding="5dp"
@@ -58,7 +58,7 @@
         android:layout_below="@id/btn2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="210dp"
         android:background="#fc917e"/>
     <TextView
         android:id="@+id/bottom"

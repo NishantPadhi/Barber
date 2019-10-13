@@ -3,14 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="20dp"
-        android:text="Home Fragment" />
+        <TextView
+            android:id="@+id/saloon"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/s2"/>
+        <TextView
+            android:id="@+id/beauty"
+            android:layout_width="match_parent"
+            android:layout_below="@id/saloon"
+            android:layout_height="190dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/s4"/>
+        <TextView
+            android:id="@+id/spa"
+            android:layout_width="match_parent"
+            android:layout_below="@id/beauty"
+            android:layout_height="190dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/s3"/>
 </RelativeLayout>

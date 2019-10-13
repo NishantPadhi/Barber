@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="Fill your details"
         android:textStyle="bold"
-        android:textSize="26dp"
+        android:textSize="23dp"
         android:textAlignment="center"
         android:textColor="#f0764a"/>
     <EditText
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
+        android:textSize="20dp"
         android:padding="10dp"
         android:hint="Shop Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
@@ -44,6 +45,7 @@
         android:background="@drawable/shape"
         android:padding="10dp"
         android:hint="Shop Opening Time"
+        android:textSize="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <TextView
         android:id="@+id/closingtime"
@@ -55,16 +57,29 @@
         android:background="@drawable/shape"
         android:padding="10dp"
         android:hint="Shop Closing Time"
+        android:textSize="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <TextView
+        android:id="@+id/location"
+        android:layout_below="@id/closingtime"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:padding="10dp"
+        android:hint="Location"
+        android:textSize="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <Button
         android:id="@+id/Register"
-        android:layout_below="@id/closingtime"
+        android:layout_below="@id/location"
         android:layout_width="match_parent"
         android:layout_marginTop="80dp"
         android:layout_marginHorizontal="15dp"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:textSize="20dp"
+        android:textSize="17dp"
         android:textAlignment="center"
         android:padding="5dp"
         android:layout_centerHorizontal="true"
@@ -74,7 +89,7 @@
         android:layout_below="@id/Register"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="80dp"
         android:background="#fc917e"/>
 
     <TextView

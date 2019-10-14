@@ -10,12 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Owner"
+            android:label="@string/title_activity_owner"
+            android:parentActivityName=".ownerSignup"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.barber.ownerSignup" />
+        </activity>
+        <activity
             android:name=".UserHomePage"
-            android:label="@string/title_activity_user_home_page"></activity>
+            android:label="@string/title_activity_user_home_page" />
         <activity android:name=".Shop_details" />
         <activity android:name=".ownerSignup" />
-        <activity
-            android:name=".customerSignup" />
+        <activity android:name=".customerSignup" />
         <activity
             android:name=".ui.login.customerLogin"
             android:label="@string/title_activity_customer_login"

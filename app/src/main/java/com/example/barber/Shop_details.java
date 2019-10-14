@@ -88,4 +88,9 @@ public class Shop_details extends AppCompatActivity {
         Intent i=new Intent(this,Signup_activity.class);
         startActivity(i);
     }
+
+    public void homepage(View view) {
+        Intent i=new Intent(this,Owner.class);
+        startActivity(i);
+    }
 }

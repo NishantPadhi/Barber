@@ -2,16 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textappointment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:text="  Today's Appointments"
+        android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="20dp"
-        android:text="Home Fragment" />
+        android:textSize="18dp"/>
+    <ListView
+        android:id="@+id/CustomerlistToday"
+        android:layout_below="@id/textappointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:scrollbars="none"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"/>
 </RelativeLayout>

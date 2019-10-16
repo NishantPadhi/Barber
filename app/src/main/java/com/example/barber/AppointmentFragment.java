@@ -17,9 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentFragment extends Fragment
-{   List<CAppointment> cAppointments;
-    CMyListAdapter adapter;
-    ListView listView;
+{
+    String[] salon_name={"Special Saloon1","Special Saloon2","Special Saloon3","Special Saloon4","Special Saloon5"};
+    String[] booking_date={"5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"};
+    String[] schedule_date={"5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"};
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -27,19 +29,11 @@ public class AppointmentFragment extends Fragment
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View view=inflater.inflate(R.layout.fragment_ownerappointment   ,container,false);
+        View view=inflater.inflate(R.layout.fragment_appointment   ,container,false);
 
-        cAppointments=new ArrayList<>();
-        listView=view.findViewById(R.id.Customermylist);
-
-        cAppointments.add(new CAppointment("Special Saloon1","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"));
-        cAppointments.add(new CAppointment("Special Saloo2","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"));
-        cAppointments.add(new CAppointment("Special Saloo3","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"));
-        cAppointments.add(new CAppointment("Special Saloo4","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"));
-        cAppointments.add(new CAppointment("Special Saloo5","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"));
-
-        adapter=new CMyListAdapter(getActivity(),R.layout.custom_list,cAppointments);
-        listView.setAdapter(adapter);
+        ListView customList=view.findViewById(R.id.Customerlist);
+        CMyListAdapter cMyListAdapter=new CMyListAdapter(getContext(),salon_name,booking_date,schedule_date);
+        customList.setAdapter(cMyListAdapter);
         return view;
     }
 }

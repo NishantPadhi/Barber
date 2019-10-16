@@ -9,14 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="  Your Appointments"
+        android:textColor="#000000"
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="18dp"/>
     <ListView
-        android:id="@+id/Customermylist"
+        android:id="@+id/Customerlist"
         android:layout_below="@id/textappointment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:divider="@null"
+        android:dividerHeight="10dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"/>
 </RelativeLayout>

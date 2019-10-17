@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "737234430318",
-    "firebase_url": "https://saloon-99c32.firebaseio.com",
-    "project_id": "saloon-99c32",
-    "storage_bucket": "saloon-99c32.appspot.com"
+    "project_number": "202915933117",
+    "firebase_url": "https://barber-8fd3b.firebaseio.com",
+    "project_id": "barber-8fd3b",
+    "storage_bucket": "barber-8fd3b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:737234430318:android:fe0e9504818386984bf97f",
+        "mobilesdk_app_id": "1:202915933117:android:4b7371d820b22f931c00d4",
         "android_client_info": {
           "package_name": "com.example.barber"
         }
       },
       "oauth_client": [
         {
-          "client_id": "737234430318-2d3n3qvtte4s5g3qn7ng9ee3tmes071u.apps.googleusercontent.com",
+          "client_id": "202915933117-n7hq5jm00k4mj69sivn6cpminm0dblaj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.barber",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "737234430318-9sjgrek42b9spv3bcfk95eb18aqad0i6.apps.googleusercontent.com",
+          "client_id": "202915933117-aq7qom2qh4q3rokm6matreuh81712gdd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA0T4rTa-FgrH0Nyn94M5FHYZ8YWZ2nJ_0"
+          "current_key": "AIzaSyAwJGV6DNK4LmjiaduE48DWk_Yeh9ZYJzo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "737234430318-9sjgrek42b9spv3bcfk95eb18aqad0i6.apps.googleusercontent.com",
+              "client_id": "202915933117-aq7qom2qh4q3rokm6matreuh81712gdd.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

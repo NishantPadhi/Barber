@@ -32,13 +32,15 @@
         android:orientation="horizontal"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="50dp">
-        <EditText android:layout_width="fill_parent"
+        <EditText android:id="@+id/fname"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/shape"
             android:hint="First name"
             android:padding="10dp"/>
-        <EditText android:layout_width="fill_parent"
+        <EditText android:id="@+id/lname"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Last name"
@@ -74,6 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:hint="Password"/>
     <EditText

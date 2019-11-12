@@ -59,6 +59,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
         android:padding="10dp"
+        android:inputType="phone"
         android:hint="Mobile number"/>
     <EditText
         android:id="@+id/email"
@@ -70,9 +71,14 @@
         android:background="@drawable/shape"
         android:padding="10dp"
         android:hint="Email"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordinput"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email">
     <EditText
         android:id="@+id/password"
-        android:layout_below="@id/email"
         android:layout_marginTop="12dp"
         android:layout_marginHorizontal="15dp"
         android:layout_width="match_parent"
@@ -81,9 +87,10 @@
         android:inputType="textPassword"
         android:padding="10dp"
         android:hint="Password"/>
+    </com.google.android.material.textfield.TextInputLayout>
     <EditText
         android:id="@+id/gender"
-        android:layout_below="@id/password"
+        android:layout_below="@id/passwordinput"
         android:layout_marginTop="12dp"
         android:layout_marginHorizontal="15dp"
         android:layout_width="match_parent"

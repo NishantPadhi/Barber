@@ -10,7 +10,9 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_marginHorizontal="10dp"
-            android:background="@drawable/s2"/>
+            android:background="@drawable/s2"
+            android:onClick="Booking"
+            android:clickable="true"/>
         <TextView
             android:id="@+id/beauty"
             android:layout_width="match_parent"

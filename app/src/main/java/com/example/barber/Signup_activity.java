@@ -1,39 +1,42 @@
 package com.example.barber;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup_activity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
+    DatabaseReference databaseReferenceCustomer,databaseReferenceOwner;
+    String email,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_activity);
 
-
-        auth=FirebaseAuth.getInstance();
-
-        FirebaseUser currentUser=auth.getCurrentUser();
-
-        if(currentUser!=null)
-        {
-            Intent i=new Intent(this,MainActivity.class);
-            startActivity(i);
-        }
-
         inputEmail = (EditText) findViewById(R.id.email);
+        email=inputEmail.getText().toString().trim();
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnLogin = (Button) findViewById(R.id.sign_in_button);
@@ -49,5 +52,93 @@ public class Signup_activity extends AppCompatActivity {
     public void gotoRegister(View view) {
         Intent i=new Intent(this,Sign_up.class);
         startActivity(i);
+    }
+
+    public void SignIn(View view) {
+        auth=FirebaseAuth.getInstance();
+        FirebaseUser currentUser=auth.getCurrentUser();
+
+        email = inputEmail.getText().toString().trim();
+        password=inputPassword.getText().toString().trim();
+        auth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(Signup_activity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(!task.isSuccessful())
+                        {
+                            if(password.length()<6)
+                            {
+                                inputPassword.setError(getString(R.string.minimum_password));
+                            }
+                            else
+                            {
+                                Toast.makeText(getApplicationContext(),getString(R.string.auth_failed),Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        else
+                        {
+                        databaseReferenceCustomer= FirebaseDatabase.getInstance().getReference().child("Customer");
+                        databaseReferenceOwner=FirebaseDatabase.getInstance().getReference().child("Owner");
+                        databaseReferenceOwner.orderByChild("Email").equalTo(email).addChildEventListener(new ChildEventListener() {
+                            @Override
+                            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                Intent intent=new Intent(getApplicationContext(),Owner.class);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                            }
+
+                            @Override
+                            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                            }
+
+                            @Override
+                            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        databaseReferenceCustomer.orderByChild("email").equalTo(email).addChildEventListener(new ChildEventListener() {
+                            @Override
+                            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                Intent i=new Intent(getApplicationContext(),UserHomePage.class);
+                                startActivity(i);
+                            }
+
+                            @Override
+                            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                            }
+
+                            @Override
+                            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                            }
+
+                            @Override
+                            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        //Toast.makeText(getApplicationContext(),"Please enter a valid user email",Toast.LENGTH_LONG).show();
+                        }
+                }
+
+                }  );
     }
 }

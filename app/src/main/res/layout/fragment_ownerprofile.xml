@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_person_grey_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  First Name"/>
     <EditText
         android:id="@+id/Lname"
@@ -43,6 +44,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_person_grey_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  Last Name"/>
     <EditText
         android:id="@+id/shopname"
@@ -53,6 +55,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_content_cut_grey_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  Shop Name"/>
     <EditText
         android:id="@+id/email"
@@ -63,6 +66,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_email_black_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  Email"/>
     <EditText
         android:id="@+id/number"
@@ -73,6 +77,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_local_phone_black_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  Mobile Number"/>
     <EditText
         android:id="@+id/ShopOpeningTime"
@@ -83,6 +88,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_timer_black_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  Shop Opening Time"/>
     <EditText
         android:id="@+id/ShopClosingTime"
@@ -93,5 +99,6 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_timer_off_black_24dp"
         android:padding="10dp"
+        android:inputType="none"
         android:hint="  Shop Closing Time"/>
 </RelativeLayout>

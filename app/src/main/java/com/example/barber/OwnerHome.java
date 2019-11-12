@@ -11,8 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class OwnerHome extends Fragment
-{
+public class OwnerHome extends Fragment implements View.OnClickListener {
     String[] Customer_name={"Nishant 1","Nishant 2","Nishant 3","Nishant 4","Nishant 5"};
     String[] booking_date={"5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM","5 SEP 2019 at 7.30 PM"};
     String[] schedule_time={"5.30 PM","10.30 AM","7.30 PM","2.30 PM","3.30 PM"};
@@ -31,5 +30,10 @@ public class OwnerHome extends Fragment
         ListAdapterToday listAdapterToday=new ListAdapterToday(getContext(),Customer_name,booking_date,schedule_time);
         customList.setAdapter(listAdapterToday);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

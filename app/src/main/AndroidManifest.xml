@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.barber">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -10,10 +27,51 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SaloonDeatils"
+            android:label="@string/title_activity_saloon_deatils"
+            android:parentActivityName=".SaloonList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.barber.SaloonList" />
+        </activity>
+        <activity
+            android:name=".NearbySaloonList"
+            android:label="@string/title_activity_nearby_saloon_list"
+            android:parentActivityName=".Booking">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.barber.Booking" />
+        </activity>
+        <activity android:name=".SaloonList" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".Booking"
+            android:label="@string/title_activity_booking"
+            android:parentActivityName=".UserHomePage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.barber.UserHomePage" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
             android:name=".Owner"
             android:label="@string/title_activity_owner"
-            android:parentActivityName=".ownerSignup"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".ownerSignup">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.barber.ownerSignup" />
@@ -42,7 +100,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

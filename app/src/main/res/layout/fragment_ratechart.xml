@@ -46,6 +46,7 @@
              android:textColor="#000000"
              android:textSize="14dp"/>
          <EditText
+             android:id="@+id/GeneralHaircut"
              android:layout_width="70dp"
              android:layout_height="wrap_content"
              android:textColor="#000000"
@@ -53,6 +54,7 @@
              android:layout_marginLeft="150dp"
              android:background="@drawable/edit_text"
              android:padding="2dp"
+             android:inputType="phone"
              android:textAlignment="center"/>
      </LinearLayout>
         <LinearLayout
@@ -71,6 +73,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Buzz_hair_cut"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -78,6 +81,7 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -96,6 +100,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/combover_haircut"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -103,6 +108,7 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -121,6 +127,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/lowfade_haircut"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -128,6 +135,7 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <TextView
@@ -158,6 +166,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Trimming"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -165,6 +174,7 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -183,6 +193,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/cleanshave"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -190,6 +201,7 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <TextView
@@ -220,6 +232,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/facemassage"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -227,6 +240,7 @@
                 android:layout_marginLeft="150dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -245,6 +259,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/classicmassage"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -252,6 +267,7 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -270,6 +286,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Therapeuticmassage"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -277,6 +294,7 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <TextView
@@ -307,6 +325,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/hairstraightining"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -314,6 +333,7 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -332,6 +352,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Facial"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -339,6 +360,7 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -357,6 +379,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Manicure"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -364,6 +387,7 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -382,6 +406,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Padicure"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -389,6 +414,7 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <LinearLayout
@@ -408,6 +434,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"/>
             <EditText
+                android:id="@+id/Spa"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -415,9 +442,11 @@
                 android:layout_marginLeft="110dp"
                 android:background="@drawable/edit_text"
                 android:padding="2dp"
+                android:inputType="phone"
                 android:textAlignment="center"/>
         </LinearLayout>
         <TextView
+            android:id="@+id/price0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/spa"
@@ -425,5 +454,21 @@
             android:textSize="11dp"
             android:textColor="#000000"
             android:hint="*If you don't offer any service, put 0 as it's price."/>
+        <Button
+            android:id="@+id/dataUpdate"
+            android:layout_below="@id/price0"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textSize="14dp"
+            android:textAlignment="center"
+            android:padding="4dp"
+            android:onClick="updateData"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button"/>
+
     </RelativeLayout>
 </ScrollView>

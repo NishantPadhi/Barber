@@ -12,12 +12,15 @@
         android:id="@+id/list_top"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:onClick="Details">
+        android:clickable="false"
+        android:focusable="false">
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@drawable/b" />
+            android:background="@drawable/b"
+            android:clickable="false"
+            android:focusable="false"/>
         <TextView
             android:id="@+id/saloonname"
             android:layout_width="200dp"
@@ -28,7 +31,9 @@
             android:text="Special Saloon"
             android:textStyle="bold"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:clickable="false"
+            android:focusable="false"/>
     </LinearLayout>
     <View
         android:id="@+id/line"
@@ -37,13 +42,15 @@
         android:layout_height="0.6dp"
         android:layout_marginHorizontal="8dp"
         android:background="#c2c0c0"
-        android:onClick="Details"/>
+        android:clickable="false"
+        android:focusable="false"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fees"
         android:layout_below="@id/line"
-        android:onClick="Details">
+        android:clickable="false"
+        android:focusable="false">
         <TextView
             android:id="@+id/paymenttext"
             android:layout_width="wrap_content"
@@ -51,7 +58,9 @@
             android:hint="Average Fees: "
             android:textSize="14dp"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:clickable="false"
+            android:focusable="false"/>
         <TextView
             android:id="@+id/paymentfees"
             android:layout_width="wrap_content"
@@ -59,7 +68,9 @@
             android:text="80 Rs."
             android:textSize="15dp"
             android:layout_marginTop="5dp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:clickable="false"
+            android:focusable="false"/>
     </LinearLayout>
 
     <View
@@ -70,7 +81,8 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="7dp"
         android:background="#c2c0c0"
-        android:onClick="Details"/>
+        android:clickable="false"
+        android:focusable="false"/>
     <TextView
         android:id="@+id/star"
         android:layout_width="wrap_content"
@@ -82,5 +94,6 @@
         android:textColor="#000000"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
-        android:onClick="Details"/>
+        android:clickable="false"
+        android:focusable="false"/>
 </RelativeLayout>

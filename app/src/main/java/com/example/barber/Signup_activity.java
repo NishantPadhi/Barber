@@ -30,6 +30,7 @@ public class Signup_activity extends AppCompatActivity {
     private Button btnSignup, btnLogin, btnReset;
     DatabaseReference databaseReferenceCustomer,databaseReferenceOwner;
     String email,password;
+    public static String Owneruid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +84,10 @@ public class Signup_activity extends AppCompatActivity {
                             @Override
                             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                                 Intent intent=new Intent(getApplicationContext(),Owner.class);
+                                Owneruid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                //Owneruid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                Toast.makeText(getApplicationContext(),"Ownerid"+Owneruid,Toast.LENGTH_LONG).show();
+                                //intent.putExtra("UserId","uid");
                                 startActivity(intent);
                             }
 
@@ -111,6 +116,8 @@ public class Signup_activity extends AppCompatActivity {
                             @Override
                             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                                 Intent i=new Intent(getApplicationContext(),UserHomePage.class);
+
+                                //i.putExtra("UserId","uid");
                                 startActivity(i);
                             }
 

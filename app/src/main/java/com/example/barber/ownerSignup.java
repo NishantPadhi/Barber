@@ -29,6 +29,7 @@ public class ownerSignup extends AppCompatActivity {
     private ProgressBar progressBar;
     DatabaseReference databaseReference;
     private final String LOG_TAG = "test";
+    public static String Owner_Mobile_Number;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,6 +138,7 @@ public class ownerSignup extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if(task.isSuccessful())
                                 {
+                                    Owner_Mobile_Number=mnumber;
                                     ownerSingupFB info=new ownerSingupFB(fname,lname,mnumber,email,gender,link);
                                     FirebaseDatabase.getInstance().getReference("Owner")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

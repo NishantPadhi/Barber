@@ -84,18 +84,18 @@
         android:id="@+id/payment"
         android:layout_below="@id/belowline">
         <TextView
-        android:id="@+id/paymenttext"
+        android:id="@+id/ContactCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Total Payment : "
+        android:hint="Contact Details : "
         android:textSize="14dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/paymentfees"
+            android:id="@+id/ContactCustomerNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="500 Rs."
+            android:text="9262688967"
             android:textSize="15dp"
             android:layout_marginTop="5dp"
             android:textColor="#000000"/>

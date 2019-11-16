@@ -31,13 +31,14 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class Booking extends AppCompatActivity {
     static final int TIME_DIALOG_ID = 1111;
     private int hr,min;
-    public static String ampm;
+    public static String ampm,Date;
     public TextView view1,view2;
     FusedLocationProviderClient fusedLocationProviderClient;
     Geocoder geocoder;
     List<Address> addresses;
     double latitude,longitude;
     TextView location_detail;
+    String month;
     int day,Month,Year,minute,hour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +137,10 @@ public class Booking extends AppCompatActivity {
 
 
     public void SaloonList(View view) {
+        //String[] months={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
+        //Toast.makeText(getApplicationContext(),day+" "+months[Month]+" "+Year,Toast.LENGTH_LONG).show();
         Intent intent=new Intent(this,NearbySaloonList.class);
+
         intent.putExtra("latitude",latitude);
         intent.putExtra("longitude",longitude);
         intent.putExtra("date",day);

@@ -37,6 +37,7 @@
         android:scrollbars="none"
         android:divider="@null"
         android:dividerHeight="10dp"
+        android:clickable="true"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"/>
 </RelativeLayout>

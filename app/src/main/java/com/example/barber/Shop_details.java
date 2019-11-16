@@ -47,8 +47,8 @@ public class Shop_details extends AppCompatActivity {
     public EditText name;
     String ampm,userid=null;
     private FirebaseAuth firebaseAuth;
-    DatabaseReference databaseReference;
-
+    DatabaseReference databaseReference,databaseReferenceShop;
+    public static String Owner_Saloon_Name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,7 +146,20 @@ public class Shop_details extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please give your shop location", Toast.LENGTH_SHORT).show();
             return;
         }
-        Shop_detailsFB shopDetailsFB=new Shop_detailsFB(sname,opentime,closetime,loc,latitude,longitude);
+//        databaseReferenceShop=FirebaseDatabase.getInstance().getReference().child("Shopdetails").child(userid);
+//        databaseReferenceShop.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Owner_Saloon_Name=dataSnapshot.child("name").getValue().toString();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+        Owner_Saloon_Name=sname;
+        Shop_detailsFB shopDetailsFB=new Shop_detailsFB(sname,opentime,closetime,loc,latitude,longitude,ownerSignup.Owner_Mobile_Number);
         databaseReference.child(userid).setValue(shopDetailsFB).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

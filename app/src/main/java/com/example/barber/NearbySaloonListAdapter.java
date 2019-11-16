@@ -7,12 +7,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class NearbySaloonListAdapter extends BaseAdapter {
 
-    String[] saloon_name,avg_price,star;
+    ArrayList<String> saloon_name,avg_price,star;
     LayoutInflater layoutInflater;
 
-    NearbySaloonListAdapter(Context context, String[] saloon_name, String[] avg_price, String[] star)
+    NearbySaloonListAdapter(Context context, ArrayList<String> saloon_name, ArrayList<String> avg_price, ArrayList<String> star)
     {
         this.saloon_name=saloon_name;
         this.avg_price=avg_price;
@@ -22,13 +24,14 @@ public class NearbySaloonListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return saloon_name.length;
+        return saloon_name.size();
     }
 
     @Override
     public Object getItem(int position) {
         return null;
     }
+
 
     @Override
     public long getItemId(int position) {
@@ -43,9 +46,9 @@ public class NearbySaloonListAdapter extends BaseAdapter {
         TextView price=view.findViewById(R.id.paymentfees);
         TextView starText=view.findViewById(R.id.star);
 
-        saloonName.setText(saloon_name[position]);
-        price.setText(avg_price[position]);
-        starText.setText(star[position]);
+        saloonName.setText(saloon_name.get(position));
+        price.setText(avg_price.get(position));
+        starText.setText(star.get(position));
 
         return view;
     }

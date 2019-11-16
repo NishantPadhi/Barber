@@ -1,10 +1,13 @@
 package com.example.barber;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,14 +23,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class NearbySaloonList extends AppCompatActivity {
-    String[] saloon_name;
-    String[] avg_price;
-    String[] rate;
-    ArrayList<String> s_name,price,user_rating;
+    ArrayList<String> saloon_name,avg_price,rate;
     double currentLongitude,currentLatitude;
 
     DatabaseReference databaseReferenceshop;
     FirebaseAuth firebaseAuth;
+
+    NearbySaloonListAdapter nearbySaloonListAdapter;
 
     TextView Nodata;
     public static int day_book,Month_book,Year_book,minute_book,hour_book;
@@ -43,17 +45,31 @@ public class NearbySaloonList extends AppCompatActivity {
         firebaseAuth=firebaseAuth.getInstance();
         databaseReferenceshop= FirebaseDatabase.getInstance().getReference().child("Shopdetails");
 
-        s_name=new ArrayList<>();
-        price=new ArrayList<>();
-        user_rating=new ArrayList<>();
+        Nodata=findViewById(R.id.Nodata);
+        final ListView saloonList = findViewById(R.id.NearbySaloonList);
+
+        saloon_name=new ArrayList<>();
+        avg_price=new ArrayList<>();
+        rate=new ArrayList<>();
+
+        saloonList.setVisibility(View.GONE);
+        saloonList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getApplicationContext(),SaloonDeatils.class);
+                intent.putExtra("SaloonName",saloon_name.get(position));
+                startActivity(intent);
+            }
+        });
 
         currentLatitude=getIntent().getDoubleExtra("latitude",25.6193885);
         currentLongitude=getIntent().getDoubleExtra("longitude",85.171428);
         day_book=getIntent().getIntExtra("date",0);
         Month_book=getIntent().getIntExtra("month",0);
         Year_book=getIntent().getIntExtra("year",0);
-        minute_book=getIntent().getIntExtra("month",0);
-        hour_book=getIntent().getIntExtra("year",0);
+        minute_book=getIntent().getIntExtra("minute",0);
+        hour_book=getIntent().getIntExtra("hour",0);
+        Toast.makeText(getApplicationContext(),day_book+" "+Month_book+" "+Year_book,Toast.LENGTH_LONG).show();
 
         databaseReferenceshop.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,8 +88,15 @@ public class NearbySaloonList extends AppCompatActivity {
 
                     if(distance<2000)
                     {
+                        Nodata.setVisibility(View.GONE);
+                        saloonList.setVisibility(View.VISIBLE);
+                        saloon_name.add(postSnapshot.child("name").getValue().toString());
+                        avg_price.add("80 Rs.");
+                        rate.add("3.5 star");
+                        nearbySaloonListAdapter=new NearbySaloonListAdapter(getApplicationContext(),saloon_name,avg_price,rate);
+                        saloonList.setAdapter(nearbySaloonListAdapter);
 
-                        s_name.add(postSnapshot.child("name").getValue().toString());
+                        //nearbySaloonListAdapter.notifyDataSetChanged();
                     }
                 }
             }
@@ -83,30 +106,7 @@ public class NearbySaloonList extends AppCompatActivity {
 
             }
         });
-        saloon_name=s_name.toArray(new String[s_name.size()]);
 
-        for(int i=0;i<saloon_name.length;i++)
-        {
-            avg_price[i] = "80 Rs.";
-            rate[i]="3.5 star";
-        }
-        Nodata=findViewById(R.id.Nodata);
-        ListView saloonList = findViewById(R.id.NearbySaloonList);
-
-        if(s_name.size()==0)
-        {
-            NearbySaloonListAdapter nearbySaloonListAdapter = new NearbySaloonListAdapter(getApplicationContext(), saloon_name, avg_price, rate);
-            saloonList.setAdapter(nearbySaloonListAdapter);
-            saloonList.setVisibility(View.GONE);
-        }
-        else
-            {
-                Nodata.setVisibility(View.GONE);
-                saloonList.setVisibility(View.VISIBLE);
-
-            NearbySaloonListAdapter nearbySaloonListAdapter = new NearbySaloonListAdapter(getApplicationContext(), saloon_name, avg_price, rate);
-            saloonList.setAdapter(nearbySaloonListAdapter);
-        }
     }
 
 }

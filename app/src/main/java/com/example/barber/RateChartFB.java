@@ -1,14 +1,15 @@
 package com.example.barber;
 
 public class RateChartFB {
-    public String general_cut,buzz_cut,combover,lowfade,trim,cleanshave,facemassage,classicmassage,Therapeuticmassage;
+    public String saloon_name,general_cut,buzz_cut,combover,lowfade,trim,cleanshave,facemassage,classicmassage,Therapeuticmassage;
     public String hair_straightining,facial,manicure,padicure,spa;
     RateChartFB()
     {
 
     }
 
-    public RateChartFB(String general_cut, String buzz_cut, String combover, String lowfade, String trim, String cleanshave, String facemassage, String classicmassage, String therapeuticmassage, String hair_straightining, String facial, String manicure, String padicure, String spa) {
+    public RateChartFB(String saloon_name,String general_cut, String buzz_cut, String combover, String lowfade, String trim, String cleanshave, String facemassage, String classicmassage, String therapeuticmassage, String hair_straightining, String facial, String manicure, String padicure, String spa) {
+        this.saloon_name=saloon_name;
         if(Integer.parseInt(general_cut.trim())==0)
             general_cut="N.A";
         this.general_cut = general_cut;

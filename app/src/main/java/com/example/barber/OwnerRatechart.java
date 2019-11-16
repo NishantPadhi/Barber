@@ -17,8 +17,11 @@ import androidx.fragment.app.Fragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -139,20 +142,35 @@ implements View.OnClickListener {
 
 
         FirebaseDatabase database=FirebaseDatabase.getInstance();
-        final DatabaseReference databaseReference=database.getReference("PriceChart");
         final String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        RateChartFB info=new RateChartFB(generalHaircut,buzzHaircut,comboverHaircut,lowfade,trimming,cleanShave,facemassage,classicmassage,therapeuticmassage,hairstraightining,facial,manicure,padicure,spa);
-        databaseReference.child(uid).setValue(info).addOnSuccessListener(new OnSuccessListener<Void>() {
+        final DatabaseReference databaseReference=database.getReference("PriceChart");
+        final String[] saloon_name = new String[1];
+        DatabaseReference databaseReferenceOwner=database.getReference("Shopdetails").child(uid);
+        databaseReferenceOwner.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(getContext(),"Updation Successful",Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                saloon_name[0] =dataSnapshot.child("name").getValue().toString();
+                RateChartFB info=new RateChartFB(saloon_name[0],generalHaircut,buzzHaircut,comboverHaircut,lowfade,trimming,cleanShave,facemassage,classicmassage,therapeuticmassage,hairstraightining,facial,manicure,padicure,spa);
+                databaseReference.child(uid).setValue(info).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getContext(),"Updated Successfully!!!"+saloon_name[0],Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(),"Try again",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-        }).addOnFailureListener(new OnFailureListener() {
+
             @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(),"Try again",Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
+
+
 
         edit.commit();
 

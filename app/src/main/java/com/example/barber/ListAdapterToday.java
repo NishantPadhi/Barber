@@ -7,19 +7,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ListAdapterToday extends BaseAdapter {
-    String[] customer_name,booking_date,scheduling_time;
+    ArrayList<String> customer_name,booking_date,scheduling_time,mobile_number;
     LayoutInflater inflater;
-    ListAdapterToday(Context context, String[] customername, String[] booking_date, String[] scheduling_time)
+    ListAdapterToday(Context context, ArrayList<String> customername, ArrayList<String> booking_date, ArrayList<String> scheduling_time,ArrayList<String> mobile_number)
     {
         this.customer_name=customername;
         this.booking_date=booking_date;
         this.scheduling_time=scheduling_time;
+        this.mobile_number=mobile_number;
         inflater=(LayoutInflater.from(context));
     }
     @Override
     public int getCount() {
-        return customer_name.length;
+        return customer_name.size();
     }
 
     @Override
@@ -40,11 +43,12 @@ public class ListAdapterToday extends BaseAdapter {
         TextView customername=view.findViewById(R.id.customername);
         TextView booking=view.findViewById(R.id.bookdisplay);
         TextView schedule=view.findViewById(R.id.scheduledisplay);
+        TextView Contact=view.findViewById(R.id.ContactNumber);
 
-
-        customername.setText(customer_name[position]);
-        booking.setText(booking_date[position]);
-        schedule.setText(scheduling_time[position]);
+        customername.setText(customer_name.get(position));
+        booking.setText(booking_date.get(position));
+        schedule.setText(scheduling_time.get(position));
+        Contact.setText(mobile_number.get(position));
 
         return view;
     }

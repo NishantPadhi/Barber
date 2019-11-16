@@ -7,22 +7,23 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class OMyListAdapter extends BaseAdapter {
-    String[] customer_name,booking_date,scheduling_date;
-    double[] payment_fees;
+    ArrayList<String> customer_name,booking_date,scheduling_date,Customer_Mobile_Number;
     LayoutInflater inflater;
-    public OMyListAdapter(Context context, String[] customername, String[] booking_date, String[] scheduling_date,double[] paymentfees)
+    public OMyListAdapter(Context context, ArrayList<String> customername, ArrayList<String> booking_date, ArrayList<String> scheduling_date,ArrayList<String> Mobile_number)
     {
         this.customer_name=customername;
         this.booking_date=booking_date;
         this.scheduling_date=scheduling_date;
-        this.payment_fees=paymentfees;
+        this.Customer_Mobile_Number=Mobile_number;
         inflater=(LayoutInflater.from(context));
     }
 
     @Override
     public int getCount() {
-        return customer_name.length;
+        return customer_name.size();
     }
 
     @Override
@@ -43,12 +44,12 @@ public class OMyListAdapter extends BaseAdapter {
         TextView customername=view.findViewById(R.id.customername);
         TextView booking=view.findViewById(R.id.bookdisplay);
         TextView schedule=view.findViewById(R.id.scheduledisplay);
-        TextView payment=view.findViewById(R.id.paymentfees);
+        TextView mobile=view.findViewById(R.id.ContactCustomerNumber);
 
-        customername.setText(customer_name[position]);
-        booking.setText(booking_date[position]);
-        schedule.setText(scheduling_date[position]);
-        payment.setText(Double.toString(payment_fees[position])+" Rs.");
+        customername.setText(customer_name.get(position));
+        booking.setText(booking_date.get(position));
+        schedule.setText(scheduling_date.get(position));
+        mobile.setText(Customer_Mobile_Number.get(position));
         return view;
     }
 }

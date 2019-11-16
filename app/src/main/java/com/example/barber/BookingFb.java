@@ -1,14 +1,14 @@
 package com.example.barber;
 
-public class BookingFB {
+public class BookingFb {
     String email_id,saloon_name,book_date,book_month,book_year,book_hour,book_minute,book_ampm;
-    String schedule_date,schedule_month,schedule_year,schedule_hour,schedule_minute,schedule,ampm;
-    String[] months={"JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEP","OCT","NOV","DEC"};
+    String schedule_date,schedule_month,schedule_year,schedule_hour,schedule_minute,schedule,ampm,Date;
+    String[] months={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
 
-    public BookingFB() {
+    public BookingFb() {
     }
 
-    public BookingFB(String email_id,String saloon_name, String book_date, String book_month, String book_year, String book_hour, String book_minute, String book_ampm, String schedule_date, String schedule_month, String schedule_year, String schedule_hour, String schedule_minute, String schedule, String ampm) {
+    public BookingFb(String email_id, String saloon_name, String book_date, String book_month, String book_year, String book_hour, String book_minute, String book_ampm, String schedule_date, String schedule_month, String schedule_year, String schedule_hour, String schedule_minute, String schedule, String ampm) {
         this.email_id=email_id;
         this.saloon_name = saloon_name;
         this.book_date = book_date;

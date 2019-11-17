@@ -42,7 +42,7 @@ public class OMyListAdapter extends BaseAdapter {
         view=inflater.inflate(R.layout.custom_listowner,viewGroup,false);
 
         TextView customername=view.findViewById(R.id.customername);
-        TextView booking=view.findViewById(R.id.bookdisplay);
+        TextView booking=view.findViewById(R.id.slotdisplay);
         TextView schedule=view.findViewById(R.id.scheduledisplay);
         TextView mobile=view.findViewById(R.id.ContactCustomerNumber);
 

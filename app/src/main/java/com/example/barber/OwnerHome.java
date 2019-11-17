@@ -22,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.CountDownLatch;
 
 public class OwnerHome extends Fragment implements View.OnClickListener {
     ArrayList<String> Customer_name,booking_date,schedule_time,Contact_Details;
@@ -68,58 +67,52 @@ public class OwnerHome extends Fragment implements View.OnClickListener {
         String[] months={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
         Date=date+" "+months[month]+" "+year;
 
-        final CountDownLatch done = new CountDownLatch(1);
+        //final CountDownLatch done = new CountDownLatch(1);
         databaseReferenceShop.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot Snapshot) {
                 Saloon_Name=Snapshot.child("name").getValue().toString();
-                done.countDown();
-            }
+                databaseReferenceBooking.orderByChild("saloon_name").equalTo(Saloon_Name).addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        if(dataSnapshot.exists() && dataSnapshot.child("Date").getValue().toString().equals(Date)) {
+                            Nodata.setVisibility(View.GONE);
+                            CustomerList.setVisibility(View.VISIBLE);
+                            String f_name = dataSnapshot.child("user_first_name").getValue().toString();
+                            String l_name = dataSnapshot.child("user_last_name").getValue().toString();
+                            String u_name = f_name + " " + l_name;
+                            Customer_name.add(u_name);
+                            booking_date.add(dataSnapshot.child("booking_time").getValue().toString());
+                            String[] str = dataSnapshot.child("scheduling_time").getValue().toString().split(" ");
+                            String time = str[4] + " " + str[5];
+                            schedule_time.add(time);
+                            Contact_Details.add(dataSnapshot.child("Customer_Mobile_Number").getValue().toString());
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                            ListAdapterToday listAdapterToday = new ListAdapterToday(getContext(), Customer_name, booking_date, schedule_time, Contact_Details);
+                            CustomerList.setAdapter(listAdapterToday);
+                        }
+                    }
 
-            }
-        });
-        try {
-            done.await();
-        } catch(InterruptedException e) {
-            e.printStackTrace();
-        }
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-        databaseReferenceBooking.orderByChild("saloon_name").equalTo(Saloon_Name).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if(dataSnapshot.exists() && dataSnapshot.child("Date").getValue().toString().equals(Date)) {
-                    Nodata.setVisibility(View.GONE);
-                    CustomerList.setVisibility(View.VISIBLE);
-                    String f_name = dataSnapshot.child("user_first_name").getValue().toString();
-                    String l_name = dataSnapshot.child("user_last_name").getValue().toString();
-                    String u_name = f_name + " " + l_name;
-                    Customer_name.add(u_name);
-                    booking_date.add(dataSnapshot.child("booing_time").getValue().toString());
-                    String[] str = dataSnapshot.child("scheduling_time").getValue().toString().split(" ");
-                    String time = str[4] + " " + str[5];
-                    schedule_time.add(time);
-                    Contact_Details.add(dataSnapshot.child("Customer_Mobile_Number").getValue().toString());
+                    }
 
-                    ListAdapterToday listAdapterToday = new ListAdapterToday(getContext(), Customer_name, booking_date, schedule_time, Contact_Details);
-                    CustomerList.setAdapter(listAdapterToday);
-                }
-            }
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    }
 
-            }
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                    }
 
-            }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    }
+                });
 
             }
 
@@ -128,6 +121,12 @@ public class OwnerHome extends Fragment implements View.OnClickListener {
 
             }
         });
+//        try {
+//            done.await();
+//        } catch(InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
 
         return view;
     }

@@ -86,7 +86,7 @@ public class Signup_activity extends AppCompatActivity {
                                 Intent intent=new Intent(getApplicationContext(),Owner.class);
                                 Owneruid=FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 //Owneruid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                Toast.makeText(getApplicationContext(),"Ownerid"+Owneruid,Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getApplicationContext(),"Ownerid"+Owneruid,Toast.LENGTH_LONG).show();
                                 //intent.putExtra("UserId","uid");
                                 startActivity(intent);
                             }

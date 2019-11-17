@@ -39,7 +39,7 @@
         android:id="@+id/slot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="SLOT AVAILABLE ON"
+        android:hint="BOOKED ON"
         android:textSize="12dp"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/line"/>

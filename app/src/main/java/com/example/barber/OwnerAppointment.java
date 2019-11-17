@@ -60,7 +60,10 @@ public class OwnerAppointment extends Fragment
                 {
                     Nodata.setVisibility(View.GONE);
                     customList.setVisibility(View.VISIBLE);
-                    Customer_name.add(dataSnapshot.child("saloon_name").getValue().toString());
+                    String f_name = dataSnapshot.child("user_first_name").getValue().toString();
+                    String l_name = dataSnapshot.child("user_last_name").getValue().toString();
+                    String u_name = f_name + " " + l_name;
+                    Customer_name.add(u_name);
                     booking_date.add(dataSnapshot.child("booking_time").getValue().toString());
                     schedule_date.add(dataSnapshot.child("scheduling_time").getValue().toString());
                     Mobile_number.add(dataSnapshot.child("Owner_Mobile_Number").getValue().toString());

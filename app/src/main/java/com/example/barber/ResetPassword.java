@@ -22,6 +22,7 @@ public class ResetPassword extends AppCompatActivity {
     Button btnReset,btnBack;
     FirebaseAuth auth;
     ProgressBar progressBar;
+    //Function to Take the input for email and password for signin
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,6 @@ public class ResetPassword extends AppCompatActivity {
             }
         });
     }
-
     public void backToSignup(View view) {
         Intent i=new Intent(this, Signin_activity.class);
         startActivity(i);

@@ -154,7 +154,7 @@ implements View.OnClickListener {
                 databaseReference.child(uid).setValue(info).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(getContext(),"Updated Successfully!!!"+saloon_name[0],Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Updated Successfully!!!",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

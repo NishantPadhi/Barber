@@ -59,25 +59,6 @@ public class AppointmentFragment extends Fragment
         customList.setVisibility(View.GONE);
 
 
-//        final CountDownLatch done = new CountDownLatch(1);
-//        databaseReferenceCustomer.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                number=dataSnapshot.child("number").getValue().toString();
-//                done.countDown();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//        try {
-//            done.await();
-//        } catch(InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
         databaseReferenceBooking.orderByChild("Customer_Mobile_Number").equalTo(number).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {

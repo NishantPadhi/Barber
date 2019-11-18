@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,7 +68,7 @@ public class NearbySaloonList extends AppCompatActivity {
         Year_book=getIntent().getIntExtra("year",0);
         minute_book=getIntent().getIntExtra("minute",0);
         hour_book=getIntent().getIntExtra("hour",0);
-        Toast.makeText(getApplicationContext(),day_book+" "+Month_book+" "+Year_book,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),day_book+" "+Month_book+" "+Year_book,Toast.LENGTH_LONG).show();
 
         databaseReferenceshop.addValueEventListener(new ValueEventListener() {
             @Override

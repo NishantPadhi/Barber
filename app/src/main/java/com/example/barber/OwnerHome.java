@@ -67,7 +67,6 @@ public class OwnerHome extends Fragment implements View.OnClickListener {
         String[] months={"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
         Date=date+" "+months[month]+" "+year;
 
-        //final CountDownLatch done = new CountDownLatch(1);
         databaseReferenceShop.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot Snapshot) {
@@ -121,11 +120,7 @@ public class OwnerHome extends Fragment implements View.OnClickListener {
 
             }
         });
-//        try {
-//            done.await();
-//        } catch(InterruptedException e) {
-//            e.printStackTrace();
-//        }
+
 
 
         return view;

@@ -84,24 +84,24 @@
         android:onClick="homepage"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button"/>
-    <View
-        android:id="@+id/line"
-        android:layout_below="@id/Register"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="80dp"
-        android:background="#fc917e"/>
+<!--    <View-->
+<!--        android:id="@+id/line"-->
+<!--        android:layout_below="@id/Register"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:background="#fc917e"/>-->
 
-    <TextView
-        android:id="@+id/bottom"
-        android:layout_below="@id/line"
-        android:layout_marginTop="18dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@android:color/holo_red_light"
-        android:textAlignment="center"
-        android:onClick="backToSignup"
-        android:hint="Already have an account? SIGN IN"/>
+<!--    <TextView-->
+<!--        android:id="@+id/bottom"-->
+<!--        android:layout_below="@id/line"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="20dp"-->
+<!--        android:textColor="@android:color/holo_red_light"-->
+<!--        android:textAlignment="center"-->
+<!--        android:onClick="backToSignup"-->
+<!--        android:hint="Already have an account? SIGN IN"/>-->
 </RelativeLayout>

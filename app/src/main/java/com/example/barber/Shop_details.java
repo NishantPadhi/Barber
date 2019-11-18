@@ -112,10 +112,6 @@ public class Shop_details extends AppCompatActivity {
         });
     }
 
-    public void backToSignup(View view) {
-        Intent i=new Intent(this, Signin_activity.class);
-        startActivity(i);
-    }
 
     public void homepage(View view) {
         firebaseAuth=firebaseAuth.getInstance();
@@ -146,18 +142,7 @@ public class Shop_details extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please give your shop location", Toast.LENGTH_SHORT).show();
             return;
         }
-//        databaseReferenceShop=FirebaseDatabase.getInstance().getReference().child("Shopdetails").child(userid);
-//        databaseReferenceShop.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Owner_Saloon_Name=dataSnapshot.child("name").getValue().toString();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+
         Owner_Saloon_Name=sname;
         Shop_detailsFB shopDetailsFB=new Shop_detailsFB(sname,opentime,closetime,loc,latitude,longitude,ownerSignup.Owner_Mobile_Number);
         databaseReference.child(userid).setValue(shopDetailsFB).addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -96,7 +96,7 @@ public class UserHomePage extends AppCompatActivity implements
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent=new Intent(this,Signup_activity.class);
+                Intent intent=new Intent(this, Signin_activity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;

@@ -92,7 +92,7 @@
         </activity>
         <activity android:name=".Sign_up" />
         <activity android:name=".ResetPassword" />
-        <activity android:name=".Signup_activity" />
+        <activity android:name=".Signin_activity" />
         <activity android:name=".splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

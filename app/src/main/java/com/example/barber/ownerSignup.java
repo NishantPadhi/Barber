@@ -163,7 +163,7 @@ public class ownerSignup extends AppCompatActivity {
     }
 
     public void backToSignup(View view) {
-        Intent i=new Intent(this,Signup_activity.class);
+        Intent i=new Intent(this, Signin_activity.class);
         startActivity(i);
     }
 

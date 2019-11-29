@@ -1,5 +1,7 @@
 package com.example.barber;
+
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -91,6 +93,10 @@ public class UserHomePage extends AppCompatActivity implements
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
                 break;
             case R.id.nav_rate:
+                String url="https://nishantpadhi.github.io/Nishant-s-Website/";
+                Intent i=new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
                 break;
             case R.id.changePWD:
                 break;

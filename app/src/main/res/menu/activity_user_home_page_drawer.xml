@@ -33,9 +33,9 @@
                 android:title="Share Us" />
             <item
                 android:id="@+id/nav_rate"
-                android:icon="@drawable/ic_star_black_24dp"
+                android:icon="@drawable/ic_info_outline_black_24dp"
                 android:fontFamily="casual"
-                android:title="@string/rate_us" />
+                android:title="About Us" />
 
     </group>
         </menu>

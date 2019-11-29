@@ -5,10 +5,11 @@
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/RateLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
@@ -470,5 +471,5 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/button"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>

@@ -160,7 +160,10 @@ public class Shop_details extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed()
+    {
 
+    }
 
     public boolean GetLocation(View view) {
         requestPermission();

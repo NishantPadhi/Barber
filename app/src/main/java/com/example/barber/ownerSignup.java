@@ -1,13 +1,19 @@
 package com.example.barber;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,8 +28,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ownerSignup extends AppCompatActivity {
-    EditText first_name,last_name,number,Email,Password,Gender,Link;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ownerSignup extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    EditText first_name,last_name,number,Email,Password,Link;
+    Spinner Gender;
     Button btn_next;
     private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar;
@@ -50,10 +60,59 @@ public class ownerSignup extends AppCompatActivity {
         number=(EditText)findViewById(R.id.Mnumber);
         Email=(EditText)findViewById(R.id.email);
         Password=(EditText)findViewById(R.id.password);
-        Gender=(EditText)findViewById(R.id.gender);
+        Gender=(Spinner)findViewById(R.id.gender);
+        Gender.setOnItemSelectedListener(this);
+        Gender.setPrompt("Gender");
         Link=(EditText)findViewById(R.id.Website_link);
         btn_next=(Button)findViewById(R.id.next);
         progressBar=(ProgressBar)findViewById(R.id.progressBar);
+
+        List<String> gender_list=new ArrayList<>();
+        gender_list.add("Gender");
+        gender_list.add("Male");
+        gender_list.add("Female");
+        gender_list.add("Others");
+
+
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, gender_list)
+        {
+            @Override
+            public boolean isEnabled(int position)
+            {
+                if(position==0)
+                    return false;
+                else
+                    return true;
+            }
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent)
+            {
+                View view=super.getDropDownView(position,convertView,parent);
+                TextView tv=(TextView)view;
+                if(position==0)
+                {
+                    tv.setTextColor(Color.GRAY);
+                }
+                else
+                {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+            public View getView(int position,View convertView,@NonNull ViewGroup parent)
+            {
+                View view=super.getView(position,convertView,parent);
+                TextView tv=(TextView)view;
+                tv.setTextColor(Color.GRAY);
+                tv.setTextSize(18);
+                return view;
+            }
+        };
+
+
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Gender.setAdapter(dataAdapter);
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +131,7 @@ public class ownerSignup extends AppCompatActivity {
                 final String mnumber=number.getText().toString().trim();
                 final String email=Email.getText().toString().trim();
                 final String password=Password.getText().toString().trim();
-                final String gender=Gender.getText().toString().trim();
+                final String gender=String.valueOf(Gender.getSelectedItem());
                 final String link=Link.getText().toString().trim();
 
                 if (TextUtils.isEmpty(fname)) {
@@ -100,7 +159,7 @@ public class ownerSignup extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(gender)) {
-                    Toast.makeText(getApplicationContext(), "Please enter your Gender!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please select your Gender!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(link)) {
@@ -175,5 +234,15 @@ public class ownerSignup extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

@@ -1,13 +1,19 @@
 package com.example.barber;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,8 +28,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class customerSignup extends AppCompatActivity {
-    EditText First_Name,Last_Name,number,email,password,gender,referral;
+import java.util.ArrayList;
+import java.util.List;
+
+public class customerSignup extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    EditText First_Name,Last_Name,number,email,password,referral;
+    Spinner gender;
     Button btn_Register;
     private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar;
@@ -51,10 +61,56 @@ public class customerSignup extends AppCompatActivity {
         number=(EditText)findViewById(R.id.number);
         email=(EditText)findViewById(R.id.email);
         password=(EditText)findViewById(R.id.password);
-        gender=(EditText)findViewById(R.id.gender);
+        gender=(Spinner)findViewById(R.id.gender);
+        gender.setOnItemSelectedListener(this);
+        gender.setPrompt("Gender");
         referral=(EditText)findViewById(R.id.referral);
         progressBar=(ProgressBar)findViewById(R.id.progressBar);
         btn_Register=(Button)findViewById(R.id.Register);
+
+        List<String> gender_list=new ArrayList<>();
+        gender_list.add("Gender");
+        gender_list.add("Male");
+        gender_list.add("Female");
+        gender_list.add("Others");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, gender_list)
+        {
+            @Override
+            public boolean isEnabled(int position)
+            {
+                if(position==0)
+                    return false;
+                else
+                    return true;
+            }
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent)
+            {
+                View view=super.getDropDownView(position,convertView,parent);
+                TextView tv=(TextView)view;
+                if(position==0)
+                {
+                    tv.setTextColor(Color.GRAY);
+                }
+                else
+                {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+            public View getView(int position,View convertView,@NonNull ViewGroup parent)
+            {
+                View view=super.getView(position,convertView,parent);
+                TextView tv=(TextView)view;
+                tv.setTextColor(Color.GRAY);
+                tv.setTextSize(18);
+                return view;
+            }
+        };
+
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gender.setAdapter(dataAdapter);
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +127,7 @@ public class customerSignup extends AppCompatActivity {
                 final String mnumber=number.getText().toString().trim();
                 final String emailid=email.getText().toString().trim();
                 String Password=password.getText().toString().trim();
-                final String Gender=gender.getText().toString().trim();
+                final String Gender=String.valueOf(gender.getSelectedItem());
                 final String Referral=referral.getText().toString().trim();
 
                 if (TextUtils.isEmpty(firstname)) {
@@ -95,7 +151,7 @@ public class customerSignup extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(Gender)) {
-                    Toast.makeText(getApplicationContext(), "Please enter your Gender!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please Select your Gender!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(Referral)) {
@@ -171,5 +227,15 @@ public class customerSignup extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
